@@ -6,7 +6,7 @@ const getDatabaseConnection = () => {
   if (dbConnectionSingletonPromise) {
     return dbConnectionSingletonPromise
   }
-  
+
   if (NODE_ENV === 'local') {
     const url = `mongodb://${config.db.host}:${config.db.port}/${config.db.database}`
     dbConnectionSingletonPromise = mongoose.connect(url, {
