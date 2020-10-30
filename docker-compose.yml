@@ -1,0 +1,28 @@
+version: "3"
+volumes: 
+  wps-data: {}
+#   wps-test-data: {}
+services:
+  api: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - db
+    env_file: 
+      - .env
+    depends_on: 
+      - db
+    ports: 
+      - "3000:3000"
+    volumes: 
+      - "./:/usr/src/app/"
+  db:
+    image: mongo:4.2
+    env_file: 
+      - .env
+    ports:
+      - 4000:27017
+    restart: unless-stopped
+    volumes:
+      - wps-data:/data/db
