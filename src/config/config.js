@@ -18,8 +18,8 @@ const config = {
     host: 'localhost',
     user: username,
     password: passwordDb,
-    database: db, 
-    port: dbPort
+    database: db,
+    port: dbPort,
   },
 }
 

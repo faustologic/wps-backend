@@ -76,7 +76,6 @@ export const handleError = (err, req, res, next) => {
 
 // unhandleRejection and uncaughtException
 export const handleFatalError = (err) => {
-
   console.error(red().bold(err.message))
   throw new Error('FATAL_ERROR')
 }

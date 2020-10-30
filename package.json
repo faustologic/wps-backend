@@ -49,6 +49,9 @@
     "fs": "0.0.1-security",
     "kleur": "^4.1.1",
     "lodash": "^4.17.20",
-    "mongoose": "^5.10.11"
+    "mongoose": "^5.10.11",
+    "mongoose-delete": "^0.5.1",
+    "mongoose-paginate-v2": "davidsierradz/mongoose-paginate-v2#v1.6.0",
+    "mongoose-unique-validator": "^2.0.3"
   }
 }

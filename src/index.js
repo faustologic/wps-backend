@@ -14,6 +14,6 @@ getDatabaseConnection()
     })
   })
   .catch((err) => {
-    console.log(err);
+    console.log(err)
     throw new Error('PROBLEM_IN_DB')
   })
