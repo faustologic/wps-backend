@@ -1,0 +1,54 @@
+{
+  "name": "wps-backend",
+  "version": "1.0.0",
+  "description": "Backend server for a landing page World Platform Soccer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose src/*/*.test.js --detectOpenHandles",
+    "start": "babel-node src/index.js",
+    "dev": "nodemon src/index.js --exec babel-node",
+    "lint": "eslint ./src/*/*.js",
+    "format": "prettier --write \"**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faustologic/wps-backend.git"
+  },
+  "author": "Miguel Alvarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faustologic/wps-backend/issues"
+  },
+  "homepage": "https://github.com/faustologic/wps-backend#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.0.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.4.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "kleur": "^4.1.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.11"
+  }
+}
