@@ -1,0 +1,31 @@
+version: "3"
+volumes: 
+  wps-data: {}
+services:
+  api: 
+    image: tekstudiodev/wps-backend:latest
+    environment:
+      - VIRTUAL_HOST=$API_WPS_VIRTUAL_HOST
+      - LETSENCRYPT_HOST=$API_WPS_VIRTUAL_HOST
+      - LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL
+    links:
+      - db
+    env_file: 
+      - env/api.env
+    depends_on: 
+      - db
+    ports: 
+      - "50100:3000"
+  db:
+    image: mongo:4.2
+    env_file: 
+      - env/api.env
+    ports:
+      - 50101:27017
+    restart: unless-stopped
+    volumes:
+      - wps-data:/data/db
+networks:
+  default:
+    external:
+      name: proxy

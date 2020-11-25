@@ -7,6 +7,11 @@ import {
   deleteOne as subcriptionsDelete,
   restore as subcriptionsRestore,
 } from '../services/subcriptions'
+
+import CsvGenerate from '../utils/csv/index'
+import header from '../utils/csv/header'
+import subcriptionsJson from '../utils/csv/subcriptionJson'
+
 const insert = asyncWrap(async (req, res) => {
   const subcription = await subcriptionsInsert(req.body)
   res.json(subcription)
@@ -46,4 +51,12 @@ const restore = asyncWrap(async (req, res) => {
   const subcription = await subcriptionsRestore(req.params.id)
   return res.json(subcription)
 })
-export default { insert, findSubcriptions, patch, deleteOne, restore }
+
+const getCsv = asyncWrap(async(req, res) => {
+  const subcriptions = await subcriptionsFindAll({all: true})
+  const data = await subcriptionsJson(subcriptions)
+  return CsvGenerate(data, res, 'subcriptions.csv', header)
+})
+
+
+export default { insert, findSubcriptions, patch, deleteOne, restore, getCsv }
